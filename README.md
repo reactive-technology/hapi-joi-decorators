@@ -1,5 +1,5 @@
 # joi-typescript-validator
-
+Thisrepository is elisvathi/joi-typescript-validator joi upgrade to match last hapi joi version
 Allows to create validation schemas by using typescript decorators using [joi](https://github.com/hapijs/joi) as a backend
 
 Status: Work in progress
