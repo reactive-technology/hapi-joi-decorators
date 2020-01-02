@@ -64,8 +64,18 @@ Invalidates the object if the field doesn't exist
     // Joi schema
     schema.required();
 ```
-
-
+or...
+```typescript
+    import { ClassValidator } from './'
+    class Example extends ClassValidator{
+        @Required()
+        public field: string;
+    }
+    
+    const schema: Joi.Schema = Example.toObject();
+    // Joi schema
+    console.log('example schema', schema);
+```
 
 ### Optional Decorator
 
@@ -542,15 +552,15 @@ You can also override validation properties from the base class
 
 ```typescript
 
-    import { getSchema } from 'joi-typescript-validator'
-
-    class Example {
+    import {ClassValidator} from "hapi-joi-decorators/lib";
+    class Example extends ClassValidator{
         @Required()
         @Email()
         email: string;
     }
 
-    const schema: Joi.Schema = getSchema(Example);
+    const schema: Joi.Schema = Example.toObject();
+
 
 ```
 
