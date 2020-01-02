@@ -1,4 +1,4 @@
-import joi from 'joi';
+import joi from '@hapi/joi';
 import "reflect-metadata";
 import { getSchema } from ".";
 import { Optional, SchemaOptions } from "./decorators/BaseDecorators";
@@ -11,7 +11,7 @@ class Test{
 async function main(){
     const t = {data: "test", test: false};
     const schema = getSchema(Test);
-    const result = await joi.validate(t, schema);
+    const result = await schema.validate(t);
     console.log("Result", result);
 }
 

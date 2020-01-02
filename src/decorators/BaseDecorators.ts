@@ -1,4 +1,4 @@
-import Joi, { ValidationOptions } from "joi";
+import Joi, { ValidationOptions } from "@hapi/joi";
 import "reflect-metadata";
 import { FieldDescription } from "./FieldDescription";
 

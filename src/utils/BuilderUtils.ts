@@ -1,5 +1,5 @@
-import BaseJoi from "joi";
-import JoiDateExtensions from "joi-date-extensions";
+import BaseJoi from "@hapi/joi";
+import JoiDateExtensions from "@hapi/joi-date";
 import { SchemaFunction } from "..";
 import { getMetadata, getOptions, getGlobalArgs } from "./MetadataHelpers";
 import { FieldDescription } from "../decorators/FieldDescription";
@@ -114,7 +114,7 @@ function buildJoiGlobals(val: any, tp: FieldDescription) {
         const name = tp.customSchema.constructor.name;
         if (!!name && name === "Function") {
             if (!val) {
-                val = BaseJoi.empty();
+                val = BaseJoi.any().empty();
             }
             val = (tp.customSchema as SchemaFunction)(val);
         } else {
@@ -126,7 +126,7 @@ function buildJoiGlobals(val: any, tp: FieldDescription) {
         const name = globals.constructor.name;
         if (!!name && name === "Function") {
             if (!val) {
-                val = BaseJoi.empty();
+                val = BaseJoi.any().empty();
             }
             val = (tp.customSchema as SchemaFunction)(val);
         } else {
@@ -207,7 +207,7 @@ function buildJoiRoot(tp: any): BaseJoi.Schema {
         const name = globals.constructor.name;
         if (!!name && name === "Function") {
             if (!result) {
-                result = BaseJoi.empty();
+                result = BaseJoi.any().empty();
             }
             result = (globals as SchemaFunction)(result);
         } else {

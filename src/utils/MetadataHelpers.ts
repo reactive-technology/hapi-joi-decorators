@@ -1,4 +1,4 @@
-import { ValidationOptions } from "joi";
+import { ValidationOptions } from "@hapi/joi";
 import "reflect-metadata";
 import { ClassDescription, MetadataKeys } from "..";
 import { SchemaArgs } from "../decorators/BaseDecorators";
