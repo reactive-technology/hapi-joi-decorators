@@ -66,7 +66,7 @@ Invalidates the object if the field doesn't exist
 ```
 or...
 ```typescript
-    import { ClassValidator } from './'
+    import {ClassValidator} from "hapi-joi-decorators";
     class Example extends ClassValidator{
         @Required()
         public field: string;
