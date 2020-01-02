@@ -4,6 +4,7 @@ import "reflect-metadata";
 import {Request, ResponseToolkit, Server, ServerRoute} from "@hapi/hapi";
 
 import {
+  Description,
   Email,
   ItemType,
   Max,
@@ -34,6 +35,7 @@ import { ClassValidator } from './'
 class Example extends ClassValidator{
   @Required()
   @Email()
+  @Description('toto')
   email?: string;
 }
 

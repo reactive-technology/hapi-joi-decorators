@@ -82,6 +82,13 @@ export function Required() {
         setFieldDescription(target, propertyKey, description);
     };
 }
+export function Description(desc) {
+  return function(target: any, propertyKey: string) {
+    const description: FieldDescription = { description:desc };
+    setFieldDescription(target, propertyKey, description);
+  };
+}
+
 
 /**
  * Allows the field to have null value

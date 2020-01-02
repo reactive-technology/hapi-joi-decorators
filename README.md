@@ -1,5 +1,5 @@
-# joi-typescript-validator
-Thisrepository is elisvathi/joi-typescript-validator joi upgrade to match last hapi joi version
+# hapi-joi-decorators
+Thisrepository is elisvathi/hapi-joi-decorators joi upgrade to match last hapi joi version
 Allows to create validation schemas by using typescript decorators using [joi](https://github.com/hapijs/joi) as a backend
 
 Status: Work in progress
@@ -7,7 +7,7 @@ Status: Work in progress
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
-- [joi-typescript-validator](#joi-typescript-validator)
+- [hapi-joi-decorators](#hapi-joi-decorators)
     - [Installation](#installation)
     - [General Decorators](#general-decorators)
         - [Required Decorator](#required-decorator)
@@ -45,7 +45,7 @@ Status: Work in progress
 ## Installation
 
 ```bash
-    npm install --save joi-typescript-validator
+    npm install --save hapi-joi-decorators
 ```
 ## General Decorators
 
@@ -552,7 +552,7 @@ You can also override validation properties from the base class
 
 ```typescript
 
-    import {ClassValidator} from "hapi-joi-decorators/lib";
+    import {ClassValidator} from "hapi-joi-decorators";
     class Example extends ClassValidator{
         @Required()
         @Email()
@@ -568,7 +568,7 @@ You can also override validation properties from the base class
 
 ```typescript
 
-    import { Validate } from 'joi-typescript-validator'
+    import { Validate } from 'hapi-joi-decorators'
 
     class Example {
         @Required()
@@ -585,7 +585,7 @@ You can also override validation properties from the base class
 ## Example
 
 ```typescript
-    import { Validate } from 'joi-typescript-validator'
+    import { Validate } from 'hapi-joi-decorators'
 
     class UserData {
 

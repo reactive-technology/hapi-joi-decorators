@@ -3,6 +3,7 @@ import { ConditionSchema, SchemaArgs, Threshold } from "./BaseDecorators";
  *  Metadata used for all annotated fields
  */
 export interface FieldDescription {
+    description?: string;
     conditional?: ConditionSchema;
     customSchema?: SchemaArgs;
     /**
