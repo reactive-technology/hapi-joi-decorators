@@ -29,23 +29,23 @@ const HapiSwagger = require('hapi-swagger');
 //import {Schema} from "joi";
 
 
-import { getSchema } from './'
+import { ClassValidator } from './'
 
-class Example {
+class Example extends ClassValidator{
   @Required()
   @Email()
   email?: string;
 }
 
-const payload = getSchema(Example);
+const payload = Example.toObject();
 console.log('example schema', payload);
 
 
-class Params {
+class Params extends ClassValidator{
   @Required()
   id?:string;
 }
-const params = getSchema(Params);
+const params = Params.toObject();
 
 
 let swaggerOptions = {

@@ -247,3 +247,9 @@ export async function Validate(obj: any, save: boolean = true) {
     const validator: BaseJoi.Schema = getSchema(cp, save);
     return Joi.validate(obj, validator);
 }
+
+export class ClassValidator {
+  static toObject(){
+    return getSchema(this)
+  }
+}
