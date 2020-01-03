@@ -2,7 +2,7 @@ import BaseJoi from "@hapi/joi";
 import JoiDateExtensions from "@hapi/joi-date";
 import {SchemaFunction} from "..";
 import {getMetadata, getOptions, getGlobalArgs} from "./MetadataHelpers";
-import {FieldDescription} from "../decorators/FieldDescription";
+import {FieldDescription} from "..";
 
 const Joi = BaseJoi.extend(JoiDateExtensions);
 /**
@@ -65,6 +65,9 @@ function buildJoiNumber(tp: FieldDescription) {
   }
   if (tp.positive) {
     val = val.positive();
+  }
+  if (tp.alphanum) {
+    val = val.alphanum();
   }
   if (tp.negative) {
     val = val.negative();

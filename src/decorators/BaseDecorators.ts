@@ -1,6 +1,6 @@
 import Joi, { ValidationOptions } from "@hapi/joi";
 import "reflect-metadata";
-import { FieldDescription } from "./FieldDescription";
+import { FieldDescription } from "..";
 
 export const MetadataKeys = {
     Fields: "validate:fields"
@@ -165,6 +165,17 @@ export function Min(value: Threshold | number) {
         const description: FieldDescription = { minValue: mValue };
         setFieldDescription(target, propertyKey, description);
     };
+}
+
+/**
+ * Positive alpha numeric only
+ * @param enable Optional , use if you need to disable in derived classes
+ */
+export function Alphanum(enable: boolean = true) {
+  return function(target: any, propertyKey: string) {
+    const description: FieldDescription = { alphanum: enable };
+    setFieldDescription(target, propertyKey, description);
+  };
 }
 
 /**

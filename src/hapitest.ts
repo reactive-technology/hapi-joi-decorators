@@ -15,19 +15,14 @@ import {
   Optional,
   Required
 } from "./";
-import {IObject} from "./interface";
 
 const Hapi = require('@hapi/hapi');
-const Joi = require('@hapi/joi');
 const Basic = require('@hapi/basic');
 const Blipp = require('blipp');
 const Inert = require('@hapi/inert');
 const Vision = require('@hapi/vision');
 
 const HapiSwagger = require('hapi-swagger');
-
-//import * as Joi from "joi";
-//import {Schema} from "joi";
 
 
 import { ClassValidator } from './'

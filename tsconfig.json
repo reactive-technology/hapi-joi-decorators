@@ -12,7 +12,9 @@
         "types": [ "node","hapi__joi", "reflect-metadata", "mocha", "chai"],
         "outDir": "lib"
     },
-    "files": ["src/index.ts", "./src/decorators/FieldDescription.ts"],
+    "files": ["src/index.ts",
+      "./src/interfaces.ts"
+    ],
     "include": ["src/**/*"],
     "exclude": ["node_modules"]
 }
