@@ -69,7 +69,7 @@ or...
     import {ClassValidator} from "hapi-joi-decorators";
     class Example extends ClassValidator{
         @Required()
-        public field: string;
+        public field: string = 'default value';
     }
     
     const schema: Joi.Schema = Example.toObject();

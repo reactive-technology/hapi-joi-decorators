@@ -32,20 +32,26 @@ const HapiSwagger = require('hapi-swagger');
 
 import { ClassValidator } from './'
 
-class Example extends ClassValidator{
+class ExampleTop extends ClassValidator{
   @Required()
   @Email()
-  @Description('toto')
-  email?: string;
+  @Description('please provide a valid email')
+  email: string='myemail@some.example';
+}
+
+class Example extends ExampleTop{
+  @Required()
+  @Description('evaluation')
+  eval: number=1;
 }
 
 const payload = Example.toObject();
-console.log('example schema', payload);
+//console.log('example schema', payload);
 
 
 class Params extends ClassValidator{
   @Required()
-  id?:string;
+  id:number;
 }
 const params = Params.toObject();
 
@@ -56,10 +62,13 @@ let swaggerOptions = {
     description: 'This is a sample example of API documentation.'
   },
 };
+//test with form-urlencoded
+const plugins = {
+  'hapi-swagger': {
+    payloadType: 'form'
+  }
+};
 
-
-
-console.log("payload",payload)
 const ser = async () => {
   const server = Hapi.Server({
     host: 'localhost',
@@ -88,10 +97,10 @@ const ser = async () => {
       description: 'Update sum',
       notes: ['Update a sum in our data store'],
       tags: ['api'],
-
+      //plugins
       validate: {
         params,
-        payload,
+        payload
       }
     }
   });

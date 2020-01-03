@@ -39,8 +39,9 @@ function getMetadataFromObject(obj: any, treeMetadata: { [name: string]: ClassDe
         const existingFields = existingObject.fields || {};
         let superMetadata = getMetadataFromObject(proto, treeMetadata);
         superMetadata = { ...superMetadata };
-        Object.keys(existingFields).forEach((x) => {
-            if (!superMetadata[x]) {
+
+      Object.keys(existingFields).forEach((x) => {
+        if (!superMetadata[x]) {
                 /**
                  * If a property exist on the current class but not on the super class
                  * insert the property
@@ -75,7 +76,7 @@ export function getMetadata(obj: any) {
     if (!retVal) {
         return;
     }
-    return getMetadataFromObject(obj, retVal);
+  return getMetadataFromObject(obj, retVal);
 }
 
 export function getOptions(obj: any): ValidationOptions {

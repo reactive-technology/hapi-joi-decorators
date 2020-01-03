@@ -164,7 +164,7 @@ function buildJoiObject(tp: FieldDescription) {
  * Checks the type of the field and returns the child schema accordingly
  * @param tp field description object
  */
-function buildJoiChildren(tp: FieldDescription) {
+function buildJoiChildren(tp: FieldDescription, defaultValue: any = null) {
   const primitives = ["String", "Boolean", "Number", "Array", "Date"];
   let val;
   if (primitives.includes(tp.designType.name)) {
@@ -183,8 +183,29 @@ function buildJoiChildren(tp: FieldDescription) {
   } else {
     val = buildJoiObject(tp);
   }
-  val = buildJoiGlobals(val, tp);
+  val = buildJoiGlobals(val, tp)
+  if (defaultValue) {
+    val = val.default(defaultValue);
+  }
   return val;
+}
+
+function getBaseClass(targetClass) {
+  if (targetClass instanceof Function) {
+    let baseClass = targetClass;
+
+    while (baseClass) {
+      const newBaseClass = Object.getPrototypeOf(baseClass);
+
+      if (newBaseClass && newBaseClass !== Object && newBaseClass.name) {
+        baseClass = newBaseClass;
+      } else {
+        break;
+      }
+    }
+
+    return baseClass;
+  }
 }
 
 /**
@@ -193,13 +214,15 @@ function buildJoiChildren(tp: FieldDescription) {
  */
 function buildJoiRoot(tp: any): BaseJoi.Schema {
   const metadata = getMetadata(tp);
+  const instance = new tp();
   if (!metadata) {
     return Joi.any();
   }
   const payload: any = {};
   Object.keys(metadata).forEach((x) => {
-    payload[x] = buildJoiChildren(metadata[x]);
+    payload[x] = buildJoiChildren(metadata[x], instance[x]);
   });
+
   let result = Joi.object().keys(payload);
   const options = getOptions(tp);
   if (options) {
