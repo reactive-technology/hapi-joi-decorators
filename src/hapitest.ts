@@ -67,7 +67,7 @@ const plugins = {
 const ser = async () => {
   const server = Hapi.Server({
     host: 'localhost',
-    port: 3000
+    port: 3001
   });
 
 
