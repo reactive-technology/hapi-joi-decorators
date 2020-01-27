@@ -9,7 +9,7 @@
         "sourceMap": false,
         "declaration": true,
         "removeComments": false,
-        "types": [ "node","hapi__joi", "reflect-metadata", "mocha", "chai"],
+        "types": [ "node", "reflect-metadata"],
         "outDir": "lib"
     },
     "files": ["src/index.ts",
