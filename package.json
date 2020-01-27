@@ -1,6 +1,6 @@
 {
   "name": "hapi-joi-decorators",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Class decorations based validations using JOI as a backend",
   "main": "lib/index.js",
   "directories": {
@@ -28,7 +28,8 @@
     "@hapi/hapi": "^19.0.2",
     "@hapi/hoek": "^8.5.0",
     "@hapi/inert": "^6.0.1",
-    "@hapi/joi-date": "^2.0.1",
+    "@hapi/joi": "^>= 17.1.0",
+    "@hapi/joi-date": ">= 2.0.1",
     "@hapi/vision": "^6.0.0",
     "@types/chai": "^4.2.2",
     "@types/debug": "^4.1.5",
@@ -40,6 +41,7 @@
     "chai": "^4.2.0",
     "hapi-swagger": "^12.0.0",
     "mocha": "^6.2.0",
+    "reflect-metadata": ">= 0.1.13",
     "ts-node": "^8.3.0",
     "tslint": "^5.20.0",
     "typescript": "^3.6.3"
