@@ -1,6 +1,6 @@
 {
   "name": "hapi-joi-decorators",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "Class decorations based validations using JOI as a backend",
   "main": "lib/index.js",
   "directories": {
@@ -44,10 +44,10 @@
     "tslint": "^5.20.0",
     "typescript": "^3.6.3"
   },
-  "dependencies": {
-    "@hapi/joi": "^17.1.0",
-    "@hapi/joi-date": "^2.0.1",
-    "reflect-metadata": "^0.1.13"
+  "peerDependencies": {
+    "@hapi/joi": "17.x",
+    "@hapi/joi-date": "2.x",
+    "reflect-metadata": "0.x"
   },
   "repository": {
     "type": "git",
